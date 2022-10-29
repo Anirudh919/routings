@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IServer } from '../modal/server.interface';
 import { ServersService } from '../servers.service';
 import { CanComponentDeactivate } from './can-deactivate-guard.service';
 
@@ -10,7 +11,7 @@ import { CanComponentDeactivate } from './can-deactivate-guard.service';
   styleUrls: ['./edit-server.component.css'],
 })
 export class EditServerComponent implements OnInit, CanComponentDeactivate {
-  server!: { id: number; name: string; status: string };
+  server!: IServer;
   serverName = '';
   serverStatus = '';
   allowEdit = false;
@@ -30,9 +31,10 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     });
     this.route.fragment.subscribe();
     const id = +this.route.snapshot.params['id'];
-    this.server = this.serversService.getServer(id);
+    this.server = this.serversService.getServer(id) as IServer;
+    // it can change and update server id in params
     this.serverName = this.server.name;
-    this.serverStatus = this.server.    status;
+    this.serverStatus = this.server.status;
   }
 
   onUpdateServer() {

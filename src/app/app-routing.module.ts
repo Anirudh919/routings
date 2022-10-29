@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
-import { PageNotFooundComponent } from './page-not-foound/page-not-foound.component';
+// import { PageNotFooundComponent } from './page-not-foound/page-not-foound.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerResolver } from './servers/server/server-resolve.service';

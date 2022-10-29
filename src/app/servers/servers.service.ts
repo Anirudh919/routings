@@ -1,5 +1,7 @@
+import { IServer } from './modal/server.interface';
+
 export class ServersService {
-  private servers = [
+  private servers: IServer[] = [
     {
       id: 1,
       name: 'Productionserver',
@@ -22,7 +24,7 @@ export class ServersService {
   }
 
   getServer(id: number) {
-    const server = this.servers.find((s) => {
+    const server = this.servers.find((s: IServer) => {
       return s.id === id;
     });
     return server;
